@@ -26,9 +26,10 @@ namespace Customers.Controllers
         }
 
         // GET: CustomerType/Details/5
-        public ActionResult Details(int id)
+        public ActionResult New()
         {
-            return View();
+			ModelState.Clear();
+			return View();
         }
 
         // GET: CustomerType/Create
@@ -45,6 +46,7 @@ namespace Customers.Controllers
             try
             {
 				customerTypeRepository.Add(customerType);
+				New();
 
                 return RedirectToAction(nameof(Index));
             }
